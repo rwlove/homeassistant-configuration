@@ -1,0 +1,12 @@
+homeassistant:
+  name: !secret homeassistant_name
+  latitude: !secret homeassistant_latitude
+  longitude: !secret homeassistant_longitude
+  elevation: 199
+  unit_system: imperial
+  time_zone: America/Los_Angeles
+  external_url: !secret external_url
+  internal_url: !secret internal_url
+  whitelist_external_dirs:
+    - /usr/var/dumping-ground
+    - /tmp
