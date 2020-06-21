@@ -8,5 +8,4 @@ homeassistant:
   external_url: !secret external_url
   internal_url: !secret internal_url
   whitelist_external_dirs:
-    - /usr/var/dumping-ground
     - /tmp
