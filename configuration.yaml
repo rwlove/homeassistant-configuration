@@ -1,3 +1,5 @@
+default_config:
+
 homeassistant:
   name: !secret homeassistant_name
   latitude: !secret homeassistant_latitude
@@ -7,5 +9,12 @@ homeassistant:
   time_zone: America/Los_Angeles
   external_url: !secret external_url
   internal_url: !secret internal_url
-  whitelist_external_dirs:
-    - /tmp
+  
+# Text to speech
+tts:
+  - platform: google_translate
+
+group: !include groups.yaml
+automation: !include automations.yaml
+script: !include scripts.yaml
+scene: !include scenes.yaml
