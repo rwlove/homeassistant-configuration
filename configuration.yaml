@@ -25,3 +25,5 @@ group: !include groups.yaml
 automation: !include automations.yaml
 script: !include scripts.yaml
 scene: !include scenes.yaml
+
+binary_sensor: !include_dir_merge_list binary_sensors/
