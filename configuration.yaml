@@ -29,6 +29,13 @@ scene: !include scenes.yaml
 logger: !include logger.yaml
 binary_sensor: !include_dir_merge_list binary_sensors/
 
+mqtt:
+  broker: rabbitmq.thesteamedcrab.com
+  port: 1883
+  client_id: home-assistant-1
+  keepalive: 60
+  username: !secret mqtt_username
+  password: !secret mqtt_password
 
 ####
 # Custom Components
