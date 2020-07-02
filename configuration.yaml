@@ -27,3 +27,16 @@ script: !include scripts.yaml
 scene: !include scenes.yaml
 
 binary_sensor: !include_dir_merge_list binary_sensors/
+
+
+####
+# Custom Components
+#
+#  * note that the wyze custom component is in binary_sensors/
+##
+sonoff:
+  username: !secret sonoff_username
+  password: !secret sonoff_password
+  scan_interval: 60
+  grace_period: 600
+  api_region: 'us'
