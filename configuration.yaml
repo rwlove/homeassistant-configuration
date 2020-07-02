@@ -40,3 +40,6 @@ sonoff:
   scan_interval: 60
   grace_period: 600
   api_region: 'us'
+
+hacs:
+  token: !secret hacs_github_token
