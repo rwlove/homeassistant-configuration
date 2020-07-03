@@ -14,5 +14,15 @@ jobs:
     steps:
     - name: Checkout
       uses: actions/checkout@master
+    - name: setup-git-credentials
+      uses: fusion-engineering/setup-git-credentials@v2.0.1
+      with:
+        credentials: ${{secrets.GIT_CREDENTIALS}}
+    - name: Clone private secrets repository
+      uses: actions/checkout@v2.3.1
+      with:
+        repository: rwlove/homeassistant-secrets
+        token: ${{ secrets.GitHub_PAT }} # `GitHub_PAT` is a secret that contains your PAT
+        path: secrets
     - name: Run Config Check
       uses: ludeeus/action-ha-config-check@master
