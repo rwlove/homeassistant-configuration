@@ -34,5 +34,5 @@ jobs:
       run: ls -la secrets/
     - name: Run Config Check
       uses: ludeeus/action-ha-config-check@master
-      env:
-        INPUT_CONFIG_PATH: config
+      with:
+        config_path: config
