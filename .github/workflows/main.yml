@@ -23,7 +23,16 @@ jobs:
         ref: master
         token: ${{ secrets.GITHUBPAT }} # `GitHub_PAT` is a secret that contains your PAT
         path: secrets
+    - name: ls
+      working-directory: ${{ github.workspace }}  
+      run: ls -la
+    - name: ls-config
+      working-directory: ${{ github.workspace }}  
+      run: ls -la config/
+    - name: ls-secrets
+      working-directory: ${{ github.workspace }}  
+      run: ls -la secrets/
     - name: Run Config Check
       uses: ludeeus/action-ha-config-check@master
       env:
-        INPUT_CONFIG: /config
+        INPUT_CONFIG_PATH: /config
