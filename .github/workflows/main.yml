@@ -39,6 +39,8 @@ jobs:
         path: /ha-wyzesense
     - name: ln -s /ha-wyzesense/custom_components/wyzesense /custom_components/wyzesense
       run: ln -s /ha-wyzesense/custom_components/wyzesense /custom_components/wyzesense
+    - name: Add HACS
+      run: wget -qO- https://hacs.xyz/install | bash -x -
     - name: ls
       working-directory: ${{ github.workspace }}
       run: ls -la
