@@ -28,14 +28,14 @@ jobs:
     - name: Clone sonoff
       uses: actions/checkout@v2.3.1
       with:
-        repository: https://github.com/peterbuga/HASS-sonoff-ewelink
+        repository: peterbuga/HASS-sonoff-ewelink
         path: /HASS-sonoff-ewelink
     - name: ln -s /HASS-sonoff-ewelink/sonoff /custom_components/sonoff
       run: ln -s /HASS-sonoff-ewelink/sonoff /custom_components/sonoff
     - name: Clone Wyzesense
       uses: actions/checkout@v2.3.1
       with:
-        repository: https://github.com/kevinvincent/ha-wyzesense
+        repository: kevinvincent/ha-wyzesense
         path: /ha-wyzesense
     - name: ln -s /ha-wyzesense/custom_components/wyzesense /custom_components/wyzesense
       run: ln -s /ha-wyzesense/custom_components/wyzesense /custom_components/wyzesense
