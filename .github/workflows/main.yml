@@ -42,6 +42,8 @@ jobs:
     - name: Add HACS
       working-directory: ${{ github.workspace }}/config
       run: wget -qO- https://hacs.xyz/install | bash -x -
+    - name: touch ${{ github.workspace }}/config/home-assistant.log
+      run: touch ${{ github.workspace }}/config/home-assistant.log
     - name: ls
       working-directory: ${{ github.workspace }}
       run: ls -la
