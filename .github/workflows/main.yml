@@ -66,4 +66,3 @@ jobs:
       with:
         version: STABLE
         config_path: config
-      working-directory: ${{ github.workspace }}/config
