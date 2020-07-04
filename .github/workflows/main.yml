@@ -30,15 +30,15 @@ jobs:
       with:
         repository: peterbuga/HASS-sonoff-ewelink
         path: ${{ github.workspace }}/HASS-sonoff-ewelink
-    - name: ln -s /HASS-sonoff-ewelink/sonoff /custom_components/sonoff
-      run: sudo ln -s ${{ github.workspace }}/HASS-sonoff-ewelink/sonoff ${{ github.workspace }}/custom_components/sonoff
+    - name: sudo mv ${{ github.workspace }}/HASS-sonoff-ewelink/sonoff /custom_components/sonoff
+      run: sudo mv ${{ github.workspace }}/HASS-sonoff-ewelink/sonoff ${{ github.workspace }}/custom_components/sonoff
     - name: Clone Wyzesense
       uses: actions/checkout@v2.3.1
       with:
         repository: kevinvincent/ha-wyzesense
         path: ${{ github.workspace }}/ha-wyzesense
-    - name: ln -s /ha-wyzesense/custom_components/wyzesense /custom_components/wyzesense
-      run: sudo ln -s ${{ github.workspace }}/ha-wyzesense/custom_components/wyzesense ${{ github.workspace }}/custom_components/wyzesense
+    - name: sudo mv ${{ github.workspace }}/ha-wyzesense/custom_components/wyzesense ${{ github.workspace }}/custom_components/wyzesense
+      run: sudo mv ${{ github.workspace }}/ha-wyzesense/custom_components/wyzesense ${{ github.workspace }}/custom_components/wyzesense
     - name: touch ${{ github.workspace }}/config/home-assistant.log
       run: touch ${{ github.workspace }}/config/home-assistant.log
     - name: Add HACS
@@ -53,9 +53,12 @@ jobs:
     - name: ls -la ${{ github.workspace }}secrets/
       working-directory: ${{ github.workspace }}/secrets/
       run: ls -la
-    - name: ls -la ${{ github.workspace }}/custom_components/
+    - name: ls -la ${{ github.workspace }}/custom_components/*
       working-directory: ${{ github.workspace }}/custom_components/
-      run: ls -la
+      run: ls -la *
+    - name: ls -laH ${{ github.workspace }}/custom_components/
+      working-directory: ${{ github.workspace }}/custom_components/
+      run: ls -laH
     - name: Run Config Check
       uses: ludeeus/action-ha-config-check@master
       with:
