@@ -28,7 +28,7 @@ jobs:
     - name: Clone sonoff
       uses: actions/checkout@v2.3.1
       with:
-        repository: peterbuga/HASS-sonoff-ewelink
+        repository: rwlove/HASS-sonoff-ewelink
         path: ${{ github.workspace }}/HASS-sonoff-ewelink
     - name: sudo mv ${{ github.workspace }}/HASS-sonoff-ewelink/sonoff /custom_components/sonoff
       run: sudo mv ${{ github.workspace }}/HASS-sonoff-ewelink/sonoff ${{ github.workspace }}/custom_components/sonoff
