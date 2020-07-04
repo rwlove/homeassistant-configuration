@@ -59,6 +59,11 @@ jobs:
     - name: ls -laH ${{ github.workspace }}/custom_components/
       working-directory: ${{ github.workspace }}/custom_components/
       run: ls -laH
+    - name: echo ${GITHUB_WORKSPACE}
+      run: echo ${GITHUB_WORKSPACE}
     - name: Run Config Check
       uses: ludeeus/action-ha-config-check@master
+      with:
+        version: STABLE
+        config_path: config
       working-directory: ${{ github.workspace }}/config
