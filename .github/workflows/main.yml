@@ -39,23 +39,23 @@ jobs:
         path: ${{ github.workspace }}/ha-wyzesense
     - name: ln -s /ha-wyzesense/custom_components/wyzesense /custom_components/wyzesense
       run: sudo ln -s ${{ github.workspace }}/ha-wyzesense/custom_components/wyzesense ${{ github.workspace }}/custom_components/wyzesense
+    - name: touch ${{ github.workspace }}/config/home-assistant.log
+      run: touch ${{ github.workspace }}/config/home-assistant.log
     - name: Add HACS
       working-directory: ${{ github.workspace }}/config
       run: wget -qO- https://hacs.xyz/install | bash -x -
-    - name: touch ${{ github.workspace }}/config/home-assistant.log
-      run: touch ${{ github.workspace }}/config/home-assistant.log
-    - name: ls
+    - name: ls -la ${{ github.workspace }}
       working-directory: ${{ github.workspace }}
       run: ls -la
-    - name: ls -la config/
-      working-directory: ${{ github.workspace }}
-      run: ls -la config/
-    - name: ls -la secrets/
-      working-directory: ${{ github.workspace }}  
-      run: ls -la secrets/
-    - name: ls -la custom_components/
-      working-directory: ${{ github.workspace }}  
-      run: ls -la custom_components/
+    - name: ls -lah ${{ github.workspace }}/config/
+      working-directory: ${{ github.workspace }}/config
+      run: ls -lah
+    - name: ls -la ${{ github.workspace }}secrets/
+      working-directory: ${{ github.workspace }}/secrets/
+      run: ls -la
+    - name: ls -la ${{ github.workspace }}/custom_components/
+      working-directory: ${{ github.workspace }}/custom_components/
+      run: ls -la
     - name: Run Config Check
       uses: ludeeus/action-ha-config-check@master
       with:
