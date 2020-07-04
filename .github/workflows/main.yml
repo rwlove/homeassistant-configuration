@@ -61,6 +61,8 @@ jobs:
       run: ls -laH
     - name: echo ${GITHUB_WORKSPACE}
       run: echo ${GITHUB_WORKSPACE}
+    - name: echo ${INPUT_CONFIG_PATH}
+      run: echo ${INPUT_CONFIG_PATH}
     - name: Run Config Check
       uses: ludeeus/action-ha-config-check@master
       with:
